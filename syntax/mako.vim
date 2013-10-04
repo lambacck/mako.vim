@@ -2,8 +2,11 @@
 " Language:     Mako
 " Maintainer:   Armin Ronacher <armin.ronacher@active-4.com>
 " URL:          http://lucumr.pocoo.org/
-" Last Change:  2007 April 8
-" Version:	0.6
+" Last Change:  2008 September 12
+" Version:	0.6.1
+"
+" Thanks to Brine Rue <brian@lolapps.com> who noticed a bug in the
+" delimiter handling.
 "
 " Known Limitations
 "   the <%text> block does not have correct attributes
@@ -52,10 +55,10 @@ syn region makoAttributeValue containedin=MakoTag contained start=/'/ skip=/\\'/
 
 " Tags
 syn region makoTag matchgroup=makoDelim start="<%\(def\|call\|page\|include\|namespace\|inherit\|block\)\>" end="/\?>"
-syn match makoDelim "</%\(def\|call\|block\)>"
+syn match makoDelim "</%\(def\|call\|block\|namespace\)>"
 
 syn region makoTag matchgroup=makoDelim start="<%\(def\|call\|page\|include\|namespace\|inherit\|block\|[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*\)\>" end="/\?>"
-syn match makoDelim "</%\(def\|call\|block\|[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*\)>"
+syn match makoDelim "</%\(def\|call\|block\|namespace\|[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*\)>"
 
 " Newline Escapes
 syn match makoEscape /\\$/
